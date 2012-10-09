@@ -1,6 +1,6 @@
 Tarot Three Ways 
 
-Over the years I have had interests in Occult arts as well as interactive arts, so naturally as I learned them both I practiced. Here is a collection of Tarot applications that I have made over the years. 
+Over the years I have had interests in Tarot cards as well as the Digital Interactive arts, as I learned them both I practiced them both. Here is a collection of Tarot applications that I have made over the years. 
 
 Newb JS Tarot
 This was the first Tarot application that I made for the web browser.  The code is awkward and probably buggy, but I include it because it marks a begining.
