@@ -6,7 +6,7 @@ define([
 	return Ember.View.create({
 		template: Ember.Handlebars.compile(deck),
 		
-		somevalue: 'test',
+		somevalue: '',
 		
 		spread:[],
 		
