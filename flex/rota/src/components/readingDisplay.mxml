@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:BorderContainer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				   xmlns:s="library://ns.adobe.com/flex/spark" 
+				   xmlns:mx="library://ns.adobe.com/flex/mx"     
+				   backgroundAlpha="0.0" borderVisible="false" 
+				    width="100%" minHeight="20">
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	<fx:Script>
+		<![CDATA[
+			[Bindable]
+			public var cardInfo:Object;
+			
+		]]>
+	</fx:Script>
+		<s:Label text="{cardInfo.position}" fontSize="16" fontWeight="bold" color="#EBED8E" fontFamily="Arial"/>
+		<s:Label text="{cardInfo.name}" fontSize="18" fontWeight="bold" color="#A8BB5D" fontFamily="Arial"/>
+		<s:RichText  text="{cardInfo.reading}" fontSize="16" fontWeight="normal" color="#FFFAE4" width="100%" />
+</s:BorderContainer>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="1200" minHeight="750"
+			    skinClass="skins.appSkin"
+				 creationComplete="spreadMap.send()" >
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.rpc.events.ResultEvent;
+			
+			import valueObjects.Spread;
+			
+			
+			[Bindable]
+			private var spreadMapArray:ArrayCollection = new ArrayCollection();
+			
+			[Bindable]
+			public var spreadObj:Spread;
+
+			protected function spreadMap_resultHandler(event:ResultEvent):void
+			{
+				spreadMapArray = event.result.spread.cross;
+				for each(var obj:Object in spreadMapArray){
+					
+				}
+			}
+
+
+			protected function deck_clickHandler(event:MouseEvent):void
+			{
+				var cardCount:int = -1;
+				var seed:int;
+				var draw:int;
+				var spreadCount:int;
+				var holder:int;
+				var fillCard:int;
+				var imageCount:int;
+				var spreadLayout:Array = new Array();
+				var now:Date = new Date();
+				var catcher:Array = new Array();
+			}
+			  
+
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<s:HTTPService id="spreadMap" url="data/spread.xml" result="spreadMap_resultHandler(event)" />
+	</fx:Declarations>
+	<s:layout>
+		<s:BasicLayout/>
+	</s:layout>
+	<s:Group id="content" x="10" y="10" width="1180" height="730">
+		<s:Button id="deck" x="10" y="10" skinClass="skins.deckSkin" click="deck_clickHandler(event)" />
+	</s:Group>
+</s:Application>

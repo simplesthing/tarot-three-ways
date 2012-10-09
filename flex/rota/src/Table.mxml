@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx" width="1180" height="740">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	<s:Button label="Button" width="100" height="165" left="10" top="10"/>
+	<mx:Image id="pos01" width="100" height="165" y="280" x="235"/>
+	<mx:Image x="199" y="310" width="165" height="100" id="pos02"/>
+	<mx:Image x="235" y="495" width="100" height="165" id="pos03"/>
+	<mx:Image x="40" y="280" width="100" height="165" id="pos04"/>
+	<mx:Image x="235" y="75" width="100" height="165" id="pos05"/>
+	<mx:Image x="400" y="280" width="100" height="165" id="pos06"/>
+	<mx:Image x="530" y="560" id="pos07" width="100" height="165"/>
+	<mx:Image x="530" y="375" width="100" height="165" id="pos08"/>
+	<mx:Image x="530" y="190" id="pos09" width="100" height="165"/>
+	<mx:Image x="530" y="5" id="pos10" width="100" height="165"/>
+	<s:VGroup width="508" height="730" id="readData" right="0" top="0">
+		<s:Group width="508" height="204" id="read01">
+			<s:layout>
+				<s:VerticalLayout/>
+			</s:layout>
+			<s:Label text="Label" width="506" height="26" id="position"/>
+			<s:TextArea width="506" height="55" id="meaning"/>
+			<s:Label text="Label" width="506" height="26" id="cardDrawn"/>
+			<s:TextArea width="506" height="55" id="reading"/>
+		</s:Group>
+	</s:VGroup>
+</s:Group>

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>ROTA</title>
+	</head>
+<script type="text/javascript" src="js/tarot_app.js"></script>	
+<link rel="stylesheet"  type="text/css" href="css/tarot_app.css" />
+
+	<body>
+			<div id="wrapper">
+			<div id="spread_main">
+				<div  id="situation" class="card" onclick="read(0)"><div id="0face" class="face"></div><p class="title">Situation</p></div>
+				<div  id="challenge" class="challenge" onclick="read(1)"><div id="1face" class="face"></div><p class="title">Challenge</p></div>
+			
+				<div  id="higher_power" class="card" onclick="read(2)"><div id="2face" class="face"></div><p class="title">Higher Power</p></div>
+				<div  id="foundation" class="card" onclick="read(3)" ><div id="3face" class="face"></div><p class="title">Foundation</p></div>
+				
+				<div  id="past" class="card" onclick="read(4)"><div id="4face" class="face"></div><p class="title">Past</p></div>
+				<div  id="future" class="card" onclick="read(5)"><div id="5face" class="face"></div><p class="title">Future</p></div>
+			</div>
+			<div id="spread_right">
+				<div  id="outcome" class="card" onclick="read(9)"><div id="9face" class="face"></div><p class="title">Outcome</p></div>
+				<div  id="hope_fear" class="card" onclick="read(8)"><div id="8face" class="face"></div><p class="title">Hope Fear</p></div>
+				<div  id="influences" class="card" onclick="read(7)"><div id="7face" class="face"></div><p class="title">Influences</p></div>
+				<div  id="blocks" class="card" onclick="read(6)"><div id="6face" class="face"></div><p class="title">Perspective</p></div>
+				
+			<div id="deck" onclick="draw()">
+				<p class="title">Deck</p>
+				<div id="deckface" class="deckface"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

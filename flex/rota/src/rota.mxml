@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="1200" minHeight="750"
+			    skinClass="skins.appSkin"
+				 creationComplete="cardService.send()" xmlns:components="components.*"  viewSourceURL="srcview/index.html">
+	<fx:Metadata>
+		[Event (name="showPreview", type="events.ShowPreview")]
+	</fx:Metadata>
+	<fx:Style source="rota.css"/>
+	<fx:Script>
+		<![CDATA[
+			import events.RenderCard;
+			
+			import mx.collections.ArrayCollection;
+			import mx.controls.Alert;
+			import mx.rpc.events.ResultEvent;
+			
+			import valueObjects.Card;
+			
+			[Bindable]
+			private var deckArray:ArrayCollection;
+			public var deal_count:int= 0;
+			[Bindable]
+			public var cardInfo:Object;
+			
+			protected function cardService_resultHandler(event:ResultEvent):void
+			{
+				deckArray =event.result.deck.card;
+				var card:Card;
+				for each(var obj:Object in deckArray){
+					card = new Card();
+					card.index = obj.index
+					card.hex = obj.hex;
+					card.image = obj.image;
+					card.position = obj.position;
+					card.number = obj.number;
+					card.name = obj.name;
+					card.situation = obj.situation;
+					card.challenge = obj.challenge;
+					card.higher_power = obj.higher_power;
+					card.foundation = obj.foundation;
+					card.past = obj.past;
+					card.future = obj.future;
+					card.blocks = obj.blocks;
+					card.influences = obj.influences;
+					card.hope_fear =obj.hope_fear;
+					card.outcome = obj.outcome;
+				}
+			}
+			
+			protected function deckBtn_click(event:RenderCard):void{
+				
+				switch (deal_count){
+					case 0:
+						p0.visible = true;
+						p0.cardInfo = event.cardInfo;
+						r0.visible = true;
+						r0.cardInfo = event.cardInfo;
+						break;
+					case 1: 
+						p1.visible = true;
+						p1.cardInfo = event.cardInfo;
+						r1.visible = true;
+						r1.cardInfo = event.cardInfo;
+						break;
+					case 2: 
+						p2.visible = true;
+						p2.cardInfo = event.cardInfo;
+						r2.visible = true;
+						r2.cardInfo = event.cardInfo;
+						break;
+					case 3:
+						p3.visible = true;
+						p3.cardInfo = event.cardInfo;
+						r3.visible = true;
+						r3.cardInfo = event.cardInfo;
+						break;
+					case 4:
+						p4.visible = true;
+						p4.cardInfo = event.cardInfo;
+						r4.visible = true;
+						r4.cardInfo = event.cardInfo;
+						break;
+					case 5:
+						p5.visible = true;
+						p5.cardInfo = event.cardInfo;
+						r5.visible = true;
+						r5.cardInfo = event.cardInfo;
+						break;
+					case 6:
+						p6.visible = true;
+						p6.cardInfo = event.cardInfo;
+						r6.visible = true;
+						r6.cardInfo = event.cardInfo;
+						break;
+					case 7:
+						p7.visible = true;
+						p7.cardInfo = event.cardInfo;
+						r7.visible = true;
+						r7.cardInfo = event.cardInfo;
+						break;
+					case 8:
+						p8.visible = true;
+						p8.cardInfo = event.cardInfo;
+						r8.visible = true;
+						r8.cardInfo = event.cardInfo;
+						break;
+					case 9:
+						p9.visible = true;
+						p9.cardInfo = event.cardInfo;
+						r9.visible = true;
+						r9.cardInfo = event.cardInfo;
+						break;
+				}
+				deal_count++;
+			}
+			
+
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<s:HTTPService id="cardService" url="data/paths.xml" result="cardService_resultHandler(event)" />
+	</fx:Declarations>
+	<s:layout>
+		<s:BasicLayout/>
+	</s:layout>
+	<s:Group id="content" width="100%" height="730" left="10" top="10">
+		<components:deckBtn id="deck" x="10" y="10" renderCard="deckBtn_click(event)" deckArray="{deckArray}"  />
+		<components:spreadCard id="p0" width="100" height="165" y="280" x="235" visible="false" />
+		<components:spreadCard id="p1" x="199" y="412" width="100" height="165" rotation="-90" visible="false"/>
+		<components:spreadCard id="p2"  x="235" y="495" width="100" height="165" visible="false" />
+		<components:spreadCard id="p3" x="40" y="280" width="100" height="165" visible="false" />
+		<components:spreadCard id="p4" x="235" y="75" width="100" height="165" visible="false"/>
+		<components:spreadCard id="p5" x="400" y="280" width="100" height="165" visible="false"/>
+		<components:spreadCard id="p6"  x="530" y="560" width="100" height="165" visible="false"/>
+		<components:spreadCard id="p7" x="530" y="375" width="100" height="165" visible="false" />
+		<components:spreadCard id="p8" x="530" y="190" width="100" height="165" visible="false" />
+		<components:spreadCard id="p9"  x="530" y="5"  width="100" height="165"  />
+		
+		<s:BorderContainer  backgroundAlpha="0" borderAlpha="0" x="650" y="10">
+			<s:VGroup id="readingGroup" width="600" height="550"  >
+				<components:readingDisplay id="r0" />
+				<components:readingDisplay id="r1" />
+				<components:readingDisplay id="r2" />
+				<components:readingDisplay id="r3"/>
+				<components:readingDisplay id="r4"/>
+				<components:readingDisplay id="r5"/>
+				<components:readingDisplay id="r6"/>
+				<components:readingDisplay id="r7"/>
+				<components:readingDisplay id="r8"/>
+				<components:readingDisplay id="r9"/>
+			</s:VGroup>
+			<s:Scroller viewport="{readingGroup}" />
+		</s:BorderContainer>
+
+		
+
+	</s:Group>
+</s:Application>

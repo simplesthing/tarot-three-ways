@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		 xmlns:s="library://ns.adobe.com/flex/spark" 
+		 xmlns:mx="library://ns.adobe.com/flex/mx">
+	<fx:Metadata>
+		[Event (name="renderCard", type="events.RenderCard")]
+	</fx:Metadata>
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.controls.Alert;
+			import valueObjects.Card;
+			import events.RenderCard;
+
+			[Bindable]
+			public var deckArray:ArrayCollection;
+			public var card_count:int = -1; //counter for cards drawn for the spread
+			public var card_draw:int; //index of card drawn from random
+			public var spread_count:int; //counter for cards currently in spread
+			public var holder:Card; //a temporary card for comparing current cards in spread to card_draw
+			public var fill_card:Card; //card object placed into spread
+			public var pos:String;
+			public var imageCount:int; 
+			public var spread:Array = new Array();
+			public var spreadLayout:Array = new Array();
+			public var now:Date = new Date();
+			public var catcher:Array = new Array(); //used for reading
+			
+			protected function drawCards():void
+			{
+				if (card_count<9){
+					card_draw = Math.floor(Math.random() * (77- 0 + 1) +0);
+					card_count++;
+					spread_count = card_count;
+					compare(card_draw, spread_count);
+				} else {
+					Alert.show("You have drawn all of your cards");
+				}
+			}
+			
+			protected function compare(card_draw, spread_count):void{
+				if(spread_count == 0){
+					fillSpread(card_draw, spread_count);
+				} else {
+					for(var i:int=0; i <=spread_count-1; i++){
+						holder = new Card();
+						//spread is populated in last step of each card draw turn
+						holder = spread[i]; 
+						//the current card draw turn is compared against existing spread cards
+						//if current card draw has a matching index in the spread, the card_draw is re-drawn
+						if(holder.index == card_draw.toString()){
+							card_draw = Math.floor(Math.random() * (77- 0 + 1) +0);
+							i=-1;
+						}
+					}
+					fillSpread(card_draw, spread_count);
+				}
+			}
+			
+			protected function fillSpread(card_draw, spread_count):void{
+				//Alert.show(deckArray[card_draw].name);
+				fill_card = new Card();
+				fill_card.position = spread_count.toString();
+				fill_card.index = deckArray[card_draw].index;
+				fill_card.name = deckArray[card_draw].name;
+				fill_card.hex = deckArray[card_draw].hex;
+				fill_card.image = deckArray[card_draw].image;
+				switch (spread_count){
+					case 0:
+						fill_card.position = "Situation";
+						fill_card.reading = deckArray[card_draw].situation;
+						break;
+					case 1:
+						fill_card.position = "Challenges";
+						fill_card.reading = deckArray[card_draw].challenge;
+						break;
+					case 2:
+						fill_card.position = "Foundation";
+						fill_card.reading = deckArray[card_draw].foundation;
+						break;
+					case 3:
+						fill_card.position = "Past";
+						fill_card.reading = deckArray[card_draw].past;
+						break;
+					case 4:
+						fill_card.position = "Higher Power";
+						fill_card.reading = deckArray[card_draw].higher_power;
+						break;
+					case 5:
+						fill_card.position = "Future";
+						fill_card.reading = deckArray[card_draw].future;	
+						break;
+					case 6:
+						fill_card.position = "You";
+						fill_card.reading = deckArray[card_draw].blocks;						
+						break;
+					case 7:
+						fill_card.position = "Influences";
+						fill_card.reading = deckArray[card_draw].influences;						
+						break;
+					case 8:
+						fill_card.position = "Hopes and Fears";
+						fill_card.reading = deckArray[card_draw].hope_fear;						
+						break;
+					case 9:
+						fill_card.position = "Outcome";
+						fill_card.reading = deckArray[card_draw].outcome;
+						break;
+				}
+				
+				//fill_card. = deckArray[card_draw].
+				spread[spread_count] = fill_card;
+				//Alert.show(fill_card.position + " "+spread_count);
+			}
+			
+			
+			
+			
+			protected function preview_clickHandler(event:MouseEvent):void
+			{
+				drawCards();
+				var eventObject:RenderCard = new RenderCard("renderCard", fill_card);
+				dispatchEvent(eventObject);
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<s:Button id="preview"
+			  label="preview"
+			  click="preview_clickHandler(event)" skinClass="skins.deckSkin"/>
+	
+</s:Group>
