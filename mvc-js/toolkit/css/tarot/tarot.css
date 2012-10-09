@@ -1,0 +1,125 @@
+ body {
+ 	background-image: url(../../images/tarot/background.jpg);
+ 	background-repeat:no-repeat;
+ 	/*http://www.css3.info/preview/background-size/*/
+ 	background-size:cover;
+    color: #AC9E00;
+    text-align:center;	
+    font-size:14px;
+}
+
+#ROTA {
+	position:relative;
+	width:820px;
+	height:975px;
+	margin:0 auto;
+	display:inline-block;
+} 
+
+.card {
+	width:100px;
+	height:165px;
+	display:inline-block;
+	background:#fff;	
+}
+
+.reading {
+	position:relative;
+	width:360px;	
+	display:inline-block;
+}
+
+#deck {
+	position:absolute;
+	/*Not sure wether ot use em's or %'s */
+	top:2%;
+	left:2%;
+	background: url(../../images/tarot/deck.gif);
+	background-repeat:no-repeat;
+	background-size: contain;
+}
+
+#situation {
+	position:absolute;
+	top:427px;
+	left:244px;
+	background-repeat:no-repeat;
+	background-size: contain;
+}
+
+#challenge {
+	position:absolute;
+	top:427px;
+	left:244px;
+	background-repeat:no-repeat;
+	background-size: contain;
+	-moz-transform:rotate(90deg);
+	-webkit-transform:rotate(90deg);
+	-ms-transform:rotate(90deg);
+	filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1.5);	
+}
+
+#foundation {
+	position:absolute;
+	top:614px;
+	left:244px;
+	background-repeat:no-repeat;
+	background-size: contain;
+}
+ 
+#higher_power {
+	position:absolute;
+	top:210px;
+	left:244px;
+	background-repeat:no-repeat;
+	background-size: contain;
+}
+
+#past {
+	position:absolute;
+	top:424px;
+	left:20px;
+	background-repeat:no-repeat;
+	background-size: contain;
+}
+
+#future {
+	position:absolute;
+	top:424px;
+	left:420px;
+	background-repeat:no-repeat;
+	background-size: contain;
+}
+
+#blocks {
+	position:absolute;
+	top:615px;
+	left:725px;
+	background-repeat:no-repeat;
+	background-size: contain;
+}
+
+#influences {
+	position:absolute;
+	top:424px;
+	left:725px;
+	background-repeat:no-repeat;
+	background-size: contain;
+}
+
+#hope_fear {
+	position:absolute;
+	top:233px;
+	left:725px;
+	background-repeat:no-repeat;
+	background-size: contain;
+}
+
+#outcome {
+	position:absolute;
+	top:24px;
+	left:725px;
+	background-repeat:no-repeat;
+	background-size: contain;
+}
+

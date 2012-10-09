@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <title>JavaScript MVC Tarot</title>
+    <meta http-equiv="X-UA-Compatible" value="IE=9" />
+    <meta name="description" content="JavaScript Tarot application built using require.js, ember.js and skeleton CSS frameworks">
+    <meta name="author" content="Ava Collins (Simplesthing)">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/tarot/tarot.css" />
+    <link rel="stylesheet" href="css/framework/skeleton/base.css"/>
+    <link rel="stylesheet" href="css/framework/skeleton/skeleton.css" />
+    <link rel="stylesheet" href="css/framework/skeleton/layout.css" />
+  </head>
+  <body>
+   	 <!-- 
+	 	Holds the ROTA application
+	 	To be inserted just before the body tag
+	  -->
+          <div id="ROTA"></div>
+          <script>
+           (function(d){
+            var js, id ='jssdk'; if (d.getElementById(id)) {return;}
+            js = d.createElement('script'); js.id = id; js.async = true;
+            js.src = "js/require-jquery.js";
+            js.setAttribute("data-main","js/main")
+            d.getElementsByTagName('head')[0].appendChild(js);
+          }(document));
+          </script>
+  </body>
+</html>
